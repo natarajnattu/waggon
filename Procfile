@@ -1,0 +1,1 @@
+web: gunicorn stoke.wsgi --log-file -

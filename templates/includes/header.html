@@ -1,0 +1,32 @@
+<div class="top-bar">
+    <div class="top-bar-left">
+        <ul class="menu">
+              <li><a class="app-title" href="/">Pinboard</a></li>
+              <li><a id="user-favourites" href="/">Bookmarks</a></li>
+              <li><a id="user-bookmarks" href="/favorites/">Favourites</a></li>
+              <li><a id="user-tags" href="/tags/">Tags</a></li>
+
+        </ul>
+    </div>
+    <div class="top-bar-right">
+        <ul class="menu">
+              <li>
+              	<div class="search">
+                  <div class="row"> 
+                    <div class="large-3 medium-6 small-6 columns end">
+                      <input class="st-search"id="search-query" type="text" placeholder="Search">
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li><a class="bookmark" href="/add/">Add a Bookmark</a></li>
+
+                {% if user.is_authenticated %}
+                <li><a href="/">Welcome, {{ user.get_username }}</a></li>
+              {% else %}
+                <li><a href="/">Login</a></li>
+              {% endif %}
+        </ul>
+    </div>
+</div>
+

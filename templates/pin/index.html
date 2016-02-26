@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{%block content%}
+
+<div class="row">
+
+<div class="large-8 columns">
+{% for bookmark in object_list %}
+
+<a href="{{ bookmark.link }}" target="_blank"><p>{{bookmark.title}}</p></a>
+<p>{{bookmark.created_at}}</p>
+<a href="{% url 'add_favorite' bookmark.id %}"><input type="button" class="tiny button round fav" value="FAV"></a>{% endfor %}
+</div>
+
+
+<div class="large-4 columns">
+<h3>Higgest Tagged</h3>
+
+{% for tag in popular_user_tags  %}
+<a class="tag-link-sidebar" href="{% url 'tag_items' tag.name %}">{{tag.name}}</a>
+{% endfor %}
+
+</div>
+
+
+
+</div>
+
+{%endblock content%}

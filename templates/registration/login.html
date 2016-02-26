@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+
+{% block content %}
+
+  <!--starts here-->
+	<div class="row">
+  <div class="medium-6 medium-centered large-4 large-centered columns">
+ 
+  {% if form.errors %}
+  <p class="error">Please correct the errors below:</p>
+  {{ form.non_field_errors }}
+  {% endif %}
+
+    <form action="" method="POST"> {% csrf_token %}
+      <div class="row column log-in-form">
+        <h4 class="text-center">Sign in with your email account</h4>
+        <label>Username</label>
+        
+        {% if form.username.errors %}
+        <span class="error">{{ form.username.errors|join:", " }}</span>
+        {% endif %}
+        
+        {{ form.username }}
+
+
+
+        <label>Password</label>
+        
+        {% if form.password.errors %}
+        <span class="error">{{ form.password.errors|join:", " }}</span>
+        {% endif %}
+        
+        {{ form.password }}
+
+
+        <p><input type="submit" class="button expanded" value="Login"></p>
+        <p class="text-center"><a href="#">Forgot your password?</a></p>  
+        <hr>
+        <p class="text-center"><a href="#">Don't have an account !</a></p>   
+ 
+        <a href="/accounts/register/"><input class="button expanded" value="Sign Up"></a>    
+        </div>
+    </form>
+
+  </div>
+  </div>
+  <!--ends here-->
+
+{% endblock content %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+    
+<!--starts here-->
+
+  <center class="notice">
+    <h1>That's Sweet!</h1>
+    <h1>Your Registration is successful</h1>
+    <h1>Contribute your part by exchanging knowledge in Frage!</h1>
+    <h1><a href="{% url 'add_bookmark' %}">Start Pinning</a></h1>
+  </center>
+
+
+{% endblock content %}
+

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="row">
+<div class="large-8 columns end">
+<form action="" method="POST">{% csrf_token %}
+{{ form }}
+<input type="submit" value="Bookmark">
+</form>
+</div>
+</div>
+
+{% endblock content %}

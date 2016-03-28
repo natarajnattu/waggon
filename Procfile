@@ -1,1 +1,1 @@
-web: gunicorn waggon.wsgi --log-file -
+web: waitress-serve --port=$PORT waggon.wsgi:application

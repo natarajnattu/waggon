@@ -1,5 +1,5 @@
 """
-Django settings for stoke project on Heroku. Fore more info, see:
+Django settings for waggon project on Heroku. Fore more info, see:
 https://github.com/heroku/heroku-django-template
 
 For more information on this file, see
@@ -53,12 +53,12 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-ROOT_URLCONF = 'stoke.urls'
+ROOT_URLCONF = 'waggon.urls'
 
 TEMPLATES = (
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -72,7 +72,7 @@ TEMPLATES = (
     },
 )
 
-WSGI_APPLICATION = 'stoke.wsgi.application'
+WSGI_APPLICATION = 'waggon.wsgi.application'
 
 
 # Database
@@ -129,7 +129,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(PROJECT_ROOT, 'static'),
 ]
-
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'mediafiles')
+MEDIA_URL = '/media/'
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'

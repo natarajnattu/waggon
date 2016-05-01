@@ -14,7 +14,7 @@ urlpatterns = [
 
     url(r'^$', BookmarkListView.as_view(), name="bookmarks"),
 
-    url(r'^edit/(?P<bookmark_id>[0-9]+)/',
+    url(r'^edit/(?P<pk>[0-9]+)/',
         BookmarkUpdateView.as_view(), name="edit_bookmark"),
 
     url(r'^detail/(?P<pk>[0-9]+)/',

@@ -8,8 +8,8 @@ from .forms import BookmarkForm
 from taggit.models import Tag
 from braces import views
 from django.db import IntegrityError
-
-from django.http import HttpResponse, HttpResponseForbidden
+from django.core.exceptions import PermissionDenied
+from django.http import HttpResponse
 
 
 class BookmarkListView(views.LoginRequiredMixin, ListView):
@@ -52,31 +52,22 @@ class BookmarkDetail(views.LoginRequiredMixin, DetailView):
 
 
 class BookmarkUpdateView(views.LoginRequiredMixin, UpdateView):
-
+    success_url = "/"
     form_class = BookmarkForm
+    model = Bookmark
+    template_name = 'pin/edit.html'
 
-    def get(self, request, bookmark_id):
-        if not request.user.is_active:
-            return HttpResponseForbidden()
+    def form_valid(self, form):
+        return super(BookmarkUpdateView, self).form_valid(form)
 
-        if bookmark_id:
-            bookmark = get_object_or_404(Bookmark, pk=bookmark_id)
-            if request.user.id != bookmark.user.id:
-                return HttpResponseForbidden()
+    def dispatch(self, *args, **kwargs):
+        if self.request.user.pk == self.get_object().user.pk:
+            return super(BookmarkUpdateView, self).dispatch(*args, **kwargs)
         else:
-            form = BookmarkForm(instance=bookmark)
-
-        return render(request, 'edit.html', {'form': form})
-
-    def post(self, request):
-        if request.method == 'POST':
-            form = BookmarkForm(instance=self.bookmark, data=request.POST)
-            if form.is_valid():
-                snippet = form.save()
-                return redirect(snippet)
+            raise PermissionDenied
 
 
-class Status():
+class IsReadBook():
     pass
 
 

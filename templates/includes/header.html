@@ -4,19 +4,19 @@
     <ul class="sidebar-nav">
 
       <li class="sidebar-brand"><a href="#"> Waggon</a></li>
+      <li class="sidebar-header"><a href="#"></a></li>
 
-      <li><a href="#">Cricket</a></li>
-      <li><a href="#">Volley ball</a></li>
-      <li> <a href="#">Kho-Kho</a></li>
-      <li><a href="#">Table Tennis</a></li>
-      <li><a href="#">Badminton</a></li>
-      <li><a href="#">Dodge ball</a></li>
-      <li><a href="#">Long jump</a></li>
-      <li><a href="#">Throw ball</a></li>
-      <li><a href="#">Foot ball</a></li>
-      <li><a href="#">Kabbadi</a></li>
-      <li> <a href="#">Carroms</a></li>
+      <li><a href="/">My List</a></li>
+      <li><a href="/archives/">Archives</a></li>
+      <li><a href="/favorites/">Favorites</a></li>
+
+      <li class="sidebar-header"><a href="#"></a></li>
+
+      {% for stack in stacks %}
+      <li><a href="/user/{{stack.id}}/">{{stack.name}}</a></li>
+      {% endfor %}
 
     </ul>
+
   </div>
 </div>

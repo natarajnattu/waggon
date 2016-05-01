@@ -14,7 +14,8 @@ class Bookmark(TimeAuditModel):
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True)
     user = models.ForeignKey(User)
-    
+
+    # bool field for unread and read
     tags = TaggableManager(blank=True)
 
     def __unicode__(self):

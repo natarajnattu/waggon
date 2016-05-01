@@ -4,20 +4,32 @@
 <html lang="en">
     <head>
     <title>Waggon App</title>
-    <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{% static "css/application.css"%}">
     </head>
     <body>
-        {% include "includes/header.html" %}
         <div id="wrapper">
-    	{% block content %}
+        {% include "includes/header.html" %}
+        
+        <div id="page-content-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+
+        {% block content %}
         {% endblock content %}
+                    </div>
+                </div>
+            </div>
         </div>
-		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-        <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
-        <script>
-        $(document).foundation();
-        </script>
+	</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
     </body>
 
-</html>

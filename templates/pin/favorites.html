@@ -4,16 +4,13 @@
 {% block content %}
 
 <div>
-<div class="large-8 columns end">
+<div class="col-md-12">
 <h3>All your Favorites</h3>
-
 {% for favorite in favorites %}
 <a href="{{ favorite.bookmark.link }}" target="_blank"><p>{{ favorite.bookmark.title }}</p></a>
-<p>{{favorite.bookmark.created_at}}</p>
+<p>{{ favorite.bookmark.created_at }}</p>
 {% endfor %}
-
 </div>
 </div>
-
 
 {% endblock content %}

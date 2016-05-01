@@ -7,7 +7,7 @@
 
   <!--starts here-->
 	<div class="row">
-  <div class="medium-6 medium-centered large-4 large-centered columns">
+  <div class="col-md-12">
  
   {% if form.errors %}
   <p class="error">Please correct the errors below:</p>
@@ -36,12 +36,12 @@
         {{ form.password }}
 
 
-        <p><input type="submit" class="button expanded" value="Login"></p>
+        <p><input type="submit" value="Login"></p>
         <p class="text-center"><a href="#">Forgot your password?</a></p>  
         <hr>
         <p class="text-center"><a href="#">Don't have an account !</a></p>   
  
-        <a href="/accounts/register/"><input class="button expanded" value="Sign Up"></a>    
+        <a href="/accounts/register/"><input type="submit" value="Sign Up"></a>    
         </div>
     </form>
 

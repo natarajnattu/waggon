@@ -5,9 +5,12 @@
 
 <div class="row">
 <div class="col-md-12">
-<form action="" method="POST">{% csrf_token %}
-{{ form }}
-<input type="submit" value="Bookmark">
+
+   <h2>{{bookmark.link }}</h2> 
+   <h2>{{bookmark.title }}</h2>
+   <h2>{{bookmark.description}} </h2>
+   <h4>{{bookmark.user }}</h4>
+
 </form>
 </div>
 </div>

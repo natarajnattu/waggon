@@ -1,32 +1,22 @@
-<div class="top-bar">
-    <div class="top-bar-left">
-        <ul class="menu">
-              <li><a class="app-title" href="/">Waggon App</a></li>
-              <li><a id="user-favourites" href="/">Bookmarks</a></li>
-              <li><a id="user-bookmarks" href="/favorites/">Favourites</a></li>
-              <li><a id="user-tags" href="/tags/">Tags</a></li>
+<div class="container">
+  <div id="sidebar-wrapper">
 
-        </ul>
-    </div>
-    <div class="top-bar-right">
-        <ul class="menu">
-              <li>
-              	<div class="search">
-                  <div class="row"> 
-                    <div class="large-3 medium-6 small-6 columns end">
-                      <input class="st-search"id="search-query" type="text" placeholder="Search">
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li><a class="bookmark" href="/add/">Add a Bookmark</a></li>
+    <ul class="sidebar-nav">
 
-                {% if user.is_authenticated %}
-                <li><a href="/">Welcome, {{ user.get_username }}</a></li>
-              {% else %}
-                <li><a href="/">Login</a></li>
-              {% endif %}
-        </ul>
-    </div>
+      <li class="sidebar-brand"><a href="#"> Waggon</a></li>
+
+      <li><a href="#">Cricket</a></li>
+      <li><a href="#">Volley ball</a></li>
+      <li> <a href="#">Kho-Kho</a></li>
+      <li><a href="#">Table Tennis</a></li>
+      <li><a href="#">Badminton</a></li>
+      <li><a href="#">Dodge ball</a></li>
+      <li><a href="#">Long jump</a></li>
+      <li><a href="#">Throw ball</a></li>
+      <li><a href="#">Foot ball</a></li>
+      <li><a href="#">Kabbadi</a></li>
+      <li> <a href="#">Carroms</a></li>
+
+    </ul>
+  </div>
 </div>
-

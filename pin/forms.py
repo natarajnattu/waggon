@@ -23,7 +23,7 @@ class BookmarkForm(forms.ModelForm):
     """
     class Meta:
         model = Bookmark
-        exclude = ('user',)
+        exclude = ('user', 'title')
         widgets = {
             'tags': TagWidget(),
         }

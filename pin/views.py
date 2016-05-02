@@ -32,17 +32,27 @@ class BookmarkCreateView(views.LoginRequiredMixin, View):
         form = BookmarkForm()
         return render(request, 'pin/edit.html', {'form': form})
 
+    # This POST should be the fastest :( too slow;
+    # Get this down to milliseconds
+
     def post(self, request):
         form = BookmarkForm(data=request.POST)
-        try:
-            object = form.save(commit=False)
-            object.user_id = request.user.id
-            object.save()
-            form.save_m2m()
-            return redirect("bookmarks")
+        if form.is_valid():
+            url = form.cleaned_data['link']
+            try:
+                object = form.save(commit=False)
+                from bs4 import BeautifulSoup
+                import requests
+                response = requests.get(url)
+                BeautifulSoup(response.content)
+                object.title = BeautifulSoup(response.content).find('title').text
+                object.user_id = request.user.id
+                object.save()
+                form.save_m2m()
+                return redirect("bookmarks")
 
-        except IntegrityError:
-            return HttpResponse("Bookmark Already Exists")
+            except IntegrityError:
+                return HttpResponse("Bookmark Already Exists")
 
 
 class BookmarkDetail(views.LoginRequiredMixin, DetailView):

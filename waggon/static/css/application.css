@@ -42,23 +42,28 @@
 
 /* Sidebar Styles */
 
+/* Important */
+
 .sidebar-nav {
     position: absolute;
     top: 0;
     width: 250px;
-    margin: 0;
-    padding-left: 20px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-right: 20px;
+    margin: 0px;
+    padding: 0px;    
     list-style: none;
 
 }
 
+/* Important */
 
 .sidebar-nav li {
     text-indent: 20px;
     line-height: 40px;
+    padding-left: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 10px;
+
 }
 
 .sidebar-nav li a {
@@ -79,13 +84,22 @@
     text-decoration: none;
 }
 
+
+
+/* Important */
 .sidebar-nav > .sidebar-brand {
-    height: 65px;
     font-size: 18px;
     line-height: 60px;
+    padding: 0px;
+    margin: 0px;
 
 }
 
+.sidebar-nav > .sidebar-header {
+    padding: 0px;
+    margin: 0px;
+
+}
 .sidebar-nav > .sidebar-brand a {
     color: #999999;
     background: #191919;

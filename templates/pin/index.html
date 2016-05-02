@@ -11,20 +11,21 @@
 <a href="{{ bookmark.link }}" target="_blank"><p>{{bookmark.title}}</p></a>
 <p>{{ bookmark.created_at }}</p>
 
-            <!-- I like to move it move it move it I like to move it, move it -->
 
+
+
+
+        <ul class="actions">
+          <li><a href="{% url 'delete_bookmark' bookmark.id %}">Delete</a></li>
+          <li><a href="{% url 'detail_bookmark' bookmark.id %}">Read</a></li>
+          <li><a href="{% url 'edit_bookmark' bookmark.id %}">Edit</a></li>
           {% if bookmark|is_favourited:request.user %}
-          
-          <a href="{% url 'remove_favorite' bookmark.id %}"><input type="button" value="Remove Favorite"></a>
-     
-          {% else %}
+          <li><a href="{% url 'remove_favorite' bookmark.id %}">Remove Bookmark</a>
+          {% else %}</li>
+          <li><a href="{% url 'add_favorite' bookmark.id %}">Favorite</a>
+          {% endif %}</li>
 
-          <a href="{% url 'add_favorite' bookmark.id %}"><input type="button" value="Favorite"></a>
-           
-          {% endif %}
-
-          <!-- I like to move it move it move it I like to move it, move it -->
-
+          </ul>
 {% endfor %}
 
 {% comment %}

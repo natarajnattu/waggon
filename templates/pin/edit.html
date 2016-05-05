@@ -3,12 +3,83 @@
 
 {% block content %}
 
-<div class="row">
-<div class="col-md-12">
-<form action="" method="POST">{% csrf_token %}
-{{ form }}
-<input type="submit" value="Bookmark">
+<style type="text/css">
+#id_link,#id_tags{
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
+}
+
+#id_description{
+  display: block;
+  width: 100%;
+  height: 150px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
+}	
+</style>
+
+<div>
+<div class="col-md-6">
+
+<div class="page-header" id="navbar-div">
+	<h1>Add Bookmark</h1>    
+</div>
+
+<form class="form-horizontal" method="POST">{% csrf_token %}
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Link</label>
+    <div class="col-sm-10">
+      {{form.link}}
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Description</label>
+    <div class="col-sm-10">
+    	{{form.description}}
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Tags</label>
+    <div class="col-sm-10">
+    	{{form.tags}}
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default" value="Bookmark">Sign in</button>
+    </div>
+  </div>
 </form>
+
 </div>
 </div>
 

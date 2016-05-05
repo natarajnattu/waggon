@@ -29,9 +29,9 @@
      <li><a href="{% url 'detail_bookmark' bookmark.id %}"><span class="glyphicon glyphicon-fullscreen"></span></a></li>
      <li><a href="{% url 'edit_bookmark' bookmark.id %}"><span class="glyphicon glyphicon-pencil"></span></a></li>
      {% if bookmark|is_favourited:request.user %}
-     <li><a href="{% url 'remove_favorite' bookmark.id %}"><span class="glyphicon glyphicon-thumbs-down"></span></a>
+     <li><a href="{% url 'remove_favorite' bookmark.id %}"><span class="glyphicon glyphicon-heart"></span></a>
      {% else %}</li>
-     <li><a href="{% url 'add_favorite' bookmark.id %}"><span class="glyphicon glyphicon-thumbs-up"></span></a>
+     <li><a href="{% url 'add_favorite' bookmark.id %}"><span class="glyphicon glyphicon-heart-empty"></span></a>
      {% endif %}</li>
 
 </ul>

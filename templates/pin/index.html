@@ -3,29 +3,38 @@
 {% load pin_tags %}
 {% block content %}
 
-
+<style type="text/css">
+.actions{
+    list-style-type: none;
+    padding-left: 0px;
+}
+.actions li{
+    display: inline-block;
+    padding-left: 15px;
+}
+.actions a{
+    text-decoration: none;
+}
+</style>
 <h3>All your Bookmarks</h3>
 
 {% for bookmark in object_list %}
 
+
+
 <a href="{{ bookmark.link }}" target="_blank"><p>{{bookmark.title}}</p></a>
 <p>{{ bookmark.created_at }}</p>
+<ul class="actions">
+     <li><a href="{% url 'delete_bookmark' bookmark.id %}"><span class="glyphicon glyphicon-trash"></span></a></li>
+     <li><a href="{% url 'detail_bookmark' bookmark.id %}"><span class="glyphicon glyphicon-fullscreen"></span></a></li>
+     <li><a href="{% url 'edit_bookmark' bookmark.id %}"><span class="glyphicon glyphicon-pencil"></span></a></li>
+     {% if bookmark|is_favourited:request.user %}
+     <li><a href="{% url 'remove_favorite' bookmark.id %}"><span class="glyphicon glyphicon-thumbs-down"></span></a>
+     {% else %}</li>
+     <li><a href="{% url 'add_favorite' bookmark.id %}"><span class="glyphicon glyphicon-thumbs-up"></span></a>
+     {% endif %}</li>
 
-
-
-
-
-        <ul class="actions">
-          <li><a href="{% url 'delete_bookmark' bookmark.id %}">Delete</a></li>
-          <li><a href="{% url 'detail_bookmark' bookmark.id %}">Read</a></li>
-          <li><a href="{% url 'edit_bookmark' bookmark.id %}">Edit</a></li>
-          {% if bookmark|is_favourited:request.user %}
-          <li><a href="{% url 'remove_favorite' bookmark.id %}">Remove Bookmark</a>
-          {% else %}</li>
-          <li><a href="{% url 'add_favorite' bookmark.id %}">Favorite</a>
-          {% endif %}</li>
-
-          </ul>
+</ul>
 {% endfor %}
 
 {% comment %}
